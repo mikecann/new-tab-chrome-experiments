@@ -1,0 +1,55 @@
+{
+  "name": "new-tab-chrome-experiments",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.11.0",
+    "bootstrap": "^3.3.6",
+    "express": "^4.14.0",
+    "extension-services": ">=0.0.6",
+    "history": "^1.17.0",
+    "immutable": "^3.8.1",
+    "jsonwebtoken": "^7.0.1",
+    "marked": "^0.3.5",
+    "moment": "^2.11.0",
+    "mongodb": "^2.1.18",
+    "parse": "^1.6.14",
+    "qs": "^6.0.1",
+    "query-string": "^3.0.0",
+    "react": "15.0.2",
+    "react-bootstrap": "^0.28.2",
+    "react-dom": "15.0.2",
+    "react-router": "^1.0.3",
+    "signals": "^1.0.0",
+    "socket.io": "^1.4.6",
+    "socket.io-client": "^1.4.6",
+    "urijs": "^1.18.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-typescript": "^2.10.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "gulp-zip": "^3.0.2",
+    "merge2": "^0.3.6",
+    "run-sequence": "^1.1.5",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.7.5",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.11",
+    "yargs": "^3.31.0"
+  },
+  "engines": {
+    "node": "6.2.2"
+  }
+}

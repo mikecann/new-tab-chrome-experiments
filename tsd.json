@@ -1,0 +1,69 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "webrtc/MediaStream.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "filewriter/filewriter.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "react/react-dom.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "react/react.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "filesystem/filesystem.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "chrome/chrome.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "react-bootstrap/react-bootstrap.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "moment/moment.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "moment/moment-node.d.ts": {
+      "commit": "1b272795b6fa35ded627d27476fb724110a9c673"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "e325b363f5ee9c72ebde49f1e783ae725f64b7e2"
+    },
+    "express/express.d.ts": {
+      "commit": "e325b363f5ee9c72ebde49f1e783ae725f64b7e2"
+    },
+    "mime/mime.d.ts": {
+      "commit": "e325b363f5ee9c72ebde49f1e783ae725f64b7e2"
+    },
+    "node/node.d.ts": {
+      "commit": "830e4aaac859e4f648efaa16712f1d6e378e6902"
+    },
+    "express-serve-static-core/express-serve-static-core.d.ts": {
+      "commit": "e325b363f5ee9c72ebde49f1e783ae725f64b7e2"
+    },
+    "socket.io/socket.io.d.ts": {
+      "commit": "e325b363f5ee9c72ebde49f1e783ae725f64b7e2"
+    },
+    "socket.io-client/socket.io-client.d.ts": {
+      "commit": "e325b363f5ee9c72ebde49f1e783ae725f64b7e2"
+    },
+    "js-signals/js-signals.d.ts": {
+      "commit": "e325b363f5ee9c72ebde49f1e783ae725f64b7e2"
+    },
+    "mongodb/mongodb.d.ts": {
+      "commit": "830e4aaac859e4f648efaa16712f1d6e378e6902"
+    },
+    "jsonwebtoken/jsonwebtoken.d.ts": {
+      "commit": "830e4aaac859e4f648efaa16712f1d6e378e6902"
+    },
+    "axios/axios.d.ts": {
+      "commit": "993f83fe84ba1381d006772dc3343e1b8d5304f3"
+    }
+  }
+}
