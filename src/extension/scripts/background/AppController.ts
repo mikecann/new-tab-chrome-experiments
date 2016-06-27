@@ -1,37 +1,65 @@
-import {IGame, IBoard, CellValue, IUser} from "./../../../common/Models.ts";
 import { ILogger } from "extension-services";
-import { GET_USER } from "../../../common/SocketEvents";
+import { APIService } from "./APIService";
 import * as axios from "axios";
-
+import { AppModel } from "./AppModel";
+import {IAppState} from "./../../../common/Models";
+import * as moment from "moment";
 
 export class AppController
 {
     isLoadingData: boolean;
-    rootApi: string = "https://chromeexperiments-dat.appspot.com/_ah/api/experiments/v1/experiments";
     countPerAPIPage: number = 50;
+    timeBetweenExperimentsRefresh: number = moment.duration(1, "month").asMilliseconds();
 
-    constructor(private logger: ILogger)
+    constructor(private logger: ILogger, private api:APIService, private model:AppModel<IAppState>)
     {
     }
 
     async init()
     {        
-        this.loadExperiments();
-        // 
-        //this.logger.debug(this, "Getting the user..");
+        var diff = Date.now() - this.model.state.timeOfLastUpdateUnix;
+        if (isNaN(diff) || diff > this.timeBetweenExperimentsRefresh) 
+            this.loadAllExperiments();
+        else if (this.model.state.experiments.length==0)
+             this.loadAllExperiments();
+        else
+            this.logger.debug(this, "Minimum time between experiements" +
+             "refresh not met, remaining: "+(this.timeBetweenExperimentsRefresh - diff));
     }
 
-    async loadExperiments()
+    reset()
     {
-        this.logger.debug(this, "Loading api data");
-        var response = await axios.get(`${this.rootApi}?limit=${this.countPerAPIPage}&offset=100&sort=newest`);
-        this.logger.debug(this, "GOT DATA", response.data);
+        this.model.resetToInitial();
+        this.loadAllExperiments();
     }
 
-    async LoadExperiments()
+    async loadAllExperiments()
     {
-        this.logger.debug(this, "Loading api data");
-        var response = await axios.get(`${this.rootApi}?limit=${this.countPerAPIPage}&offset=100&sort=newest`);
-        this.logger.debug(this, "GOT DATA", response.data);
+        const {model, api, logger, countPerAPIPage} = this;
+
+        logger.debug(this, "Loading all experiments..");
+
+        model.update({ 
+            isLoadingExperiements: true, 
+            experiments:[], 
+            totalExperiments: 0,
+            timeOfLastUpdateUnix: Date.now()
+        });
+        
+        var initialResp = await api.GetExperiments(0, countPerAPIPage);
+        logger.debug(this, "Initial experiments loaded", initialResp);
+
+        model.update({ totalExperiments: initialResp.total, experiments: initialResp.experiments });
+
+        for(var i=countPerAPIPage; i<initialResp.total; i+=countPerAPIPage)
+        {
+            var resp = await api.GetExperiments(i, countPerAPIPage);
+            logger.debug(this, "Experiements page loaded", resp);
+            var experiments = model.state.experiments.concat(resp.experiments);
+            model.update({ totalExperiments: initialResp.total, experiments });
+        }
+        console.log("All experiements loaded!");
+        this.model.update({ isLoadingExperiements: false });
     }
+
 }

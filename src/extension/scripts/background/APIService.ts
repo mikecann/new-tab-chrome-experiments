@@ -1,16 +1,18 @@
 import { ILogger } from "extension-services";
+import {IExperiment, IGetExperimentsResponse} from "./../../../common/Models";
+import * as axios from "axios";
 
 export class APIService
 {
     rootApi: string = "https://chromeexperiments-dat.appspot.com/_ah/api/experiments/v1/experiments";
+
     constructor(private logger: ILogger)
     {
     }
 
-    async LoadExperiments(offset:number, limit:number)
+    async GetExperiments(offset:number, limit:number) : Promise<IGetExperimentsResponse>
     {
-        this.logger.debug(this, "Loading api data");
-        var response = await axios.get(`${this.rootApi}?limit=${limit}&offset=${offset}&sort=newest`);
-        this.logger.debug(this, "GOT DATA", response.data);
+        var response = await axios.get<IGetExperimentsResponse>(`${this.rootApi}?limit=${limit}&offset=${offset}&sort=newest`);
+        return response.data;
     }
 }

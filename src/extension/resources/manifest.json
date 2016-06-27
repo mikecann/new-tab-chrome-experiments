@@ -1,23 +1,22 @@
 {
   "name": "New Tab Chrome Experiments",
-  "short_name": "PTT",
+  "short_name": "NTCE",
   "manifest_version": 2,
   "description": "A new Chrome Experiment each time you open a new tab",
-  "version": "0.1",
+  "version": "1.1",
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "unlimitedStorage"
   ],
   "background": {
     "page": "background.html"
+  },  
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
   },
-  "options_page": "options.html",
   "minimum_chrome_version": "29",
-  // "browser_action": {
-  //   "default_icon": "images/icon48.png",
-  //   "default_title": "New Tab Battleships",
-  //   "default_popup": "html/browseraction.html"    
-  // },
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",

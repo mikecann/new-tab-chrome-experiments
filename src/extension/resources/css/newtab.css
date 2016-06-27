@@ -2,3 +2,20 @@ body, #root {
     width: 100%;
     height: 100%;
 }
+
+@keyframes info-open {
+    from {left: -300;}
+    to {left: 0;}
+}
+
+.info-open {
+    animation-name: info-open;
+    animation-duration: 0.5s;
+    bottom:0;
+    left: 0;
+}
+
+.info-closed:hover {
+    color: white;
+}
+

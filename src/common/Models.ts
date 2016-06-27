@@ -1,36 +1,23 @@
-export interface IUser
+export interface IExperiment
 {
-    id?: string;
-    activeGames: IGame[];
+    id: number;
+    description: string;
+    url: string;
+    site: string;
+    title: string;    
+    author: string;
 }
 
-export interface IGame
+export interface IGetExperimentsResponse
 {
-    id: string;
-    players: string[];
-    turn: string;
-    boards: IBoard[];
+    experiments: IExperiment[];
+    total: number;
 }
 
-export interface IBoard extends Array<Array<CellValue>>
+export interface IAppState
 {
-}
-
-export enum CellValue
-{
-    Empty,
-    Miss,
-    Hit
-}
-
-export interface IGuess
-{
-    gameId: string;
-    x: number;
-    y: number;
-}
-
-export interface ISession
-{
-    token: string;
+    totalExperiments?: number;
+    isLoadingExperiements?: boolean;
+    experiments?: IExperiment[];
+    timeOfLastUpdateUnix?: number;
 }

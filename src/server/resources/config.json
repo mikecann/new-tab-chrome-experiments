@@ -1,6 +1,0 @@
-{
-    "dbURI": "mongodb://mike:dfASDFat42EWfsdsdfsf@ds025742.mlab.com:25742/tabbyships-dev",
-    "jwtSecret": "FSDg4y3tg3yAERYdd3yeetr",
-    "sendGridKey": "CHANGE_ME"
-
-}
